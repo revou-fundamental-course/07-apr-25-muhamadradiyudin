@@ -1,3 +1,23 @@
+// ======= VALIDASI NAMA USER =======
+let savedName = localStorage.getItem("userName");
+
+if (!savedName) {
+  savedName = prompt("Masukkan nama Anda:");
+  if (savedName) {
+    localStorage.setItem("userName", savedName);
+  } else {
+    savedName = "Pengunjung";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nameElement = document.getElementById("userName");
+  if (nameElement) {
+    nameElement.textContent = savedName;
+  }
+});
+
+
 // ======= FORM MESSAGE HANDLER =======
 document.getElementById("formMessage").addEventListener("submit", function (event) {
   event.preventDefault();
